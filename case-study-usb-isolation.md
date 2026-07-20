@@ -3,7 +3,7 @@
 System Isolation Log: USB Bus Saturation and Power Stabilization
 
 Environment and Issue Summary
-- Environment: Custom Windows 11 workstation running high-polling rate peripheral hardware
+- Environment: Custom Windows 11 workstation running high polling rate peripheral hardware
 - Symptom: Peripheral dropouts, input latency spikes, and USB controller resets during peak system load
 
 Diagnostic and Isolation Workflow
@@ -13,17 +13,17 @@ Diagnostic and Isolation Workflow
 
 2. Power and Bandwidth Isolation
    Checked Windows Power Options and disabled USB Selective Suspend to confirm the OS was not throttling port power.
-   Analyzed host controller assignments. Confirmed multiple high-polling peripherals were sharing a single internal motherboard USB root hub, exceeding total bus bandwidth limits under load.
+   Analyzed host controller assignments. Confirmed multiple high polling peripherals were sharing a single internal motherboard USB root hub, exceeding total bus bandwidth limits under load.
 
 Hardware Resolution and Configuration
 1. Dedicated Host Controller
-   Installed a StarTech 4-Port PCIe USB Expansion Card into an open PCI Express slot to offload high-throughput peripherals from the motherboard's built-in host controller.
+   Installed a StarTech 4-Port PCIe USB Expansion Card into an open PCI Express slot to offload high throughput peripherals from the motherboard's built in host controller.
 
 2. Power Path Isolation
    Connected dedicated SATA power directly from the Power Supply Unit (PSU) to the expansion card header. This isolated 5V bus power delivery from the motherboard traces.
 
 3. Bus Balancing
-   Reallocated high-bandwidth devices onto separate physical host channels to balance total polling rates across dedicated controllers.
+   Reallocated high bandwidth devices onto separate physical host channels to balance total polling rates across dedicated controllers.
 
 Verification and Results
 - Stress Testing: Ran continuous high-bandwidth load testing across all connected peripherals simultaneously.
