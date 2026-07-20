@@ -9,11 +9,11 @@ Environment and Issue Summary
 Diagnostic and Isolation Workflow
 1. Device Manager and Driver Audit
    Inspected Device Manager (devmgmt.msc) under Universal Serial Bus Controllers. Identified yellow warning flag on the USB root node.
-   Attempted manual driver reinstallation and device uninstall via devmgmt.msc. Windows failed to re-enumerate the hardware, indicating a hardware-level handshake failure rather than corrupt OS driver files.
+   Attempted manual driver reinstallation and device uninstall via devmgmt.msc. Windows failed to re-enumerate the hardware, indicating a hardware level handshake failure rather than corrupt OS driver files.
 
 2. Hardware Path Isolation
    Disconnected all secondary USB peripherals to rule out host controller power throttling.
-   Moved the device cable across different physical motherboard ports (USB 2.0 vs USB 3.0 controller channels) to rule out slot-specific host controller failure.
+   Moved the device cable across different physical motherboard ports (USB 2.0 vs USB 3.0 controller channels) to rule out slot specific host controller failure.
    Tested device on a secondary system. The error persisted across separate hardware, confirming the issue was localized to the peripheral's internal controller rather than the host PC.
 
 Root Cause Analysis
